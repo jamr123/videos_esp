@@ -1,6 +1,6 @@
 module.exports = {
 
-    PORT: process.env.PORT || 3333,
+    PORT: process.env.PORT || 8080,
     DB: process.env.MONGODB || 'mongodb://Jorge:Jorge135@localhost:27017/agua',
     SECRET_TOKEN_AUTH:'JAMR_AGUA_13579',
     EMAIL:{
