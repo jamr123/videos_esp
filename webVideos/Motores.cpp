@@ -21,7 +21,7 @@ void Motores::direccionArriba(void) {
   for (int x = 0; x < 200; x++) {
     digitalWrite(STEPPIN, HIGH);
     delayMicroseconds(500);
-    digitalWrite(DIRPIN, LOW);
+    digitalWrite(STEPPIN, LOW);
     delayMicroseconds(500);
   }
 }
@@ -31,7 +31,7 @@ void Motores::direccionAbajo(void) {
   for (int x = 0; x < 200; x++) {
     digitalWrite(STEPPIN, HIGH);
     delayMicroseconds(500);
-    digitalWrite(DIRPIN, LOW);
+    digitalWrite(STEPPIN, LOW);
     delayMicroseconds(500);
   }
 }
