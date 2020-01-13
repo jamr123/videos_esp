@@ -45,7 +45,7 @@ void sendDato(String dato) {
  
    HTTPClient http;  
  
-   http.begin("http://192.168.1.66:3333/api_v_01/dps");     
+   http.begin("http://192.168.0.23:3333/api_v_01/dps");     
    http.addHeader("Content-Type", "application/json"); 
    
    int httpCode = http.POST(jsonSend);  

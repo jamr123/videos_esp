@@ -19,7 +19,7 @@ export default {
         video:false,
         inicio:true
       },
-      socket:io.connect('http://192.168.1.66:3333', { 'forceNew': true }),
+      socket:io.connect('http://192.168.0.23:3333', { 'forceNew': true }),
       rutaVideo:""
     };
   },
