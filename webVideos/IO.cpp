@@ -13,8 +13,9 @@ void IO::configIO(void) {
   pinMode(FC3, INPUT_PULLUP);
   pinMode(BA, INPUT_PULLUP);
   pinMode(BC, INPUT_PULLUP);
-  pinMode(LED, OUTPUT);
-
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
 }
 
 bool IO::getArriba(void) {
@@ -60,8 +61,19 @@ bool IO::valorPin(int pin) {
 
 }
 
-void IO::setLed(bool cmd){
+void IO::setLed(int num,bool cmd){
   
-  digitalWrite(LED,cmd);
+   switch(num){
+     case 1:
+        digitalWrite(LED1,cmd);
+        break;
+     case 2:
+        digitalWrite(LED2,cmd);
+        break;
+    case 3:
+        digitalWrite(LED3,cmd);
+        break;
+    
+    }
   
   }
