@@ -22,7 +22,8 @@ void setup() {
   Serial.begin(115200);
   io.configIO();
   motores.motoresConfig();
-  wifiConfig("INFINITUM0AAE", "JamrEjro135"); //SSID,PASSWORD
+  wifiConfig("ADIF_ATOCHA", "4D1F470CH4"); //SSID,PASSWORD
+  io.setLed(0);
   posicionInicial();
 
 }
@@ -30,10 +31,12 @@ void setup() {
 void loop() {
 
   if (io.getArriba() == 1) {
+    io.setLed(0);
     subirNivel();
   }
 
   if (io.getAbajo() == 1) {
+    io.setLed(0);
     posicionInicial();
   }
 
@@ -45,7 +48,7 @@ void sendDato(String dato) {
  
    HTTPClient http;  
  
-   http.begin("http://192.168.0.23:3333/api_v_01/dps");     
+   http.begin("http://192.168.1.78:3333/api_v_01/dps");     
    http.addHeader("Content-Type", "application/json"); 
    
    int httpCode = http.POST(jsonSend);  
@@ -75,6 +78,7 @@ void subirNivel() {
         fc1 = io.getFinCarrera1();
         delay(1);
       }
+      io.setLed(1);
       sendDato("nivel1");
       Serial.println("poscicion nivel1 encontrado");
       nivel = 1;
@@ -88,6 +92,7 @@ void subirNivel() {
         fc2 = io.getFinCarrera2();
         delay(1);
       }
+      io.setLed(1);
       sendDato("nivel2");
       Serial.println("poscicion nivel2 encontrado");
       nivel = 2;
@@ -101,6 +106,7 @@ void subirNivel() {
         fc3 = io.getFinCarrera3();
         delay(1);
       }
+      io.setLed(1);
       sendDato("nivel3");
       Serial.println("poscicion nivel3 encontrado");
       nivel = 3;

@@ -13,6 +13,7 @@ void IO::configIO(void) {
   pinMode(FC3, INPUT_PULLUP);
   pinMode(BA, INPUT_PULLUP);
   pinMode(BC, INPUT_PULLUP);
+  pinMode(LED, OUTPUT);
 
 }
 
@@ -58,3 +59,9 @@ bool IO::valorPin(int pin) {
   }
 
 }
+
+void IO::setLed(bool cmd){
+  
+  digitalWrite(LED,cmd);
+  
+  }
