@@ -30,7 +30,15 @@ function socketSend(io){
     clearInterval(ivAbajo);
 }
 
+function initAbajo (){
+  
+    flagivAbajo==true;
+    dirPin.writeSync(0);
+    ivAbajo = setInterval(_ => stepPin.writeSync(stepPin.readSync() ^ 1), 1);
+    console.error('buscando Abajo'); 
+    IO.emit("messages","buscando Abajo");
 
+}
 
 
 Arriba.watch(function (err, value) { 
@@ -44,7 +52,8 @@ Arriba.watch(function (err, value) {
         flagivArriba==true;
         dirPin.writeSync(1);
         ivArriba= setInterval(_ => stepPin.writeSync(stepPin.readSync() ^ 1), 1);
-
+        console.error('buscando Arriba'); 
+        IO.emit("messages","buscando Arriba");
     }
 
 
@@ -62,7 +71,8 @@ Arriba.watch(function (err, value) {
         flagivAbajo==true;
         dirPin.writeSync(0);
         ivAbajo = setInterval(_ => stepPin.writeSync(stepPin.readSync() ^ 1), 1);
-         
+        console.error('buscando Abajo'); 
+        IO.emit("messages","buscando Abajo");
          
    
        }
@@ -74,7 +84,8 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
-
+    
+    IO.emit("messages","nivel0");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
 
@@ -91,6 +102,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    IO.emit("messages","nivel1");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
     LED1.writeSync(1);
@@ -105,6 +117,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    IO.emit("messages","nivel2");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
     LED1.writeSync(0);
@@ -119,6 +132,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    IO.emit("messages","nivel3");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
     LED1.writeSync(0);
@@ -160,4 +174,5 @@ IO.emit("messages", {value:req.body.dato});
 module.exports = {
     dpslog,
     socketSend,
+    initAbajo
 }
