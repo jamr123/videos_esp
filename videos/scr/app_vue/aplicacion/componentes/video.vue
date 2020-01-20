@@ -3,7 +3,7 @@
   <div  class="container">
         <div class="row">
           <div class="col-lg-12 col-sm-12 col-md-12 col-sm-12 col-xl-12">
-            <video id="video" :src="direccionVideo" autoplay></video>
+            <video id="video" :src="direccionVideo" autoplay controls></video>
 
           </div>
 

@@ -16,11 +16,11 @@ export default {
   data() {
     return {
       rutas: {
-        video:false,
-        inicio:true
+        video:true,
+        inicio:false
       },
       socket:io.connect('http://192.168.1.78:3333', { 'forceNew': true }),
-      rutaVideo:""
+      rutaVideo:"/videos/video0.mp4"
     };
   },
   computed: {},
@@ -36,51 +36,25 @@ this.socket.on('messages', function(data) {
      
 
     if (data.value== "nivel0") {
-     
-     this.rutas={
-       video:false,
-       inicio:false
-     }
-
-     this.rutas["inicio"]=true;
+      this.rutaVideo = "/videos/video0.mp4";
     }
 
     if (data.value == "nivel1") {
       
       this.rutaVideo = "/videos/video1.mp4";
-      
-     this.rutas={
-       video:false,
-       inicio:false
-     }
-
-     this.rutas["video"]=true;
-
-
+     
     }
 
     if (data.value == "nivel2") {
       
       this.rutaVideo = "/videos/video2.mp4";
-      
-     this.rutas={
-       video:false,
-       inicio:false
-     }
-
-     this.rutas["video"]=true;
+     
     }
 
     if (data.value == "nivel3") {
       
       this.rutaVideo ="/videos/video3.mp4";
-      
-     this.rutas={
-       video:false,
-       inicio:false
-     }
-
-     this.rutas["video"]=true;
+     
     }
 
 	
