@@ -84,7 +84,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
-    
+    console.error('FC0'); 
     IO.emit("messages","nivel0");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
@@ -102,6 +102,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    console.error('FC1'); 
     IO.emit("messages","nivel1");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
@@ -117,6 +118,7 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    console.error('FC2'); 
     IO.emit("messages","nivel2");
     clearInterval(ivAbajo);
     clearInterval(ivArriba);
@@ -132,9 +134,10 @@ Arriba.watch(function (err, value) {
       console.error('There was an error', err); 
     return;
     }
+    console.error('FC2'); 
     IO.emit("messages","nivel3");
     clearInterval(ivAbajo);
-    clearInterval(ivArriba);
+    clearInterval(ivAr3iba);
     LED1.writeSync(0);
     LED2.writeSync(0);
     LED3.writeSync(1);
